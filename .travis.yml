@@ -7,10 +7,10 @@ android:
     # - tools
 
     # The BuildTools version used by your project
-    - build-tools-23.0.1
+    - build-tools-24.0.1
 
     # The SDK version used to compile your project
-    - android-23
+    - android-24
 
     # Support library
     - extra-android-support
@@ -18,7 +18,7 @@ android:
 
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
-    - sys-img-armeabi-v7a-android-23
-    - sys-img-x86-android-23
+    - sys-img-armeabi-v7a-android-24
+    - sys-img-x86-android-24
 before_install:
   - chmod +x gradlew
