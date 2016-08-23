@@ -1,43 +1,10 @@
-sudo: false
 language: android
-env:
-  matrix:
-    - ANDROID_TARGET=android-24  ANDROID_ABI=armeabi-v7a
+jdk: oraclejdk7
+
 android:
   components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    # - platform-tools
-    # - tools
-    # The SDK version used to compile your project
-    - android-24
-    - tools
-    - tools
-    - platform-tools
-    # The BuildTools version used by your project
     - build-tools-24.0.1
 
-
-    # Support library
-    - extra-android-support
-    - extra-android-m2repository
-
-before_script:
-  # Create and start an emulator for instrumentation tests.
-  - echo no | android create avd --force -n test -t android list targets --abi $ANDROID_ABI
-  - emulator -avd test -no-audio -no-window &
-  - android-wait-for-emulator
-  - adb shell input keyevent 82
 script:
-  - ./gradlew connectedAndroidTest
-  - adb devices
-  - ./gradlew assembleDebug
-  - ./gradlew :testDebug
-
-before_install:
-  - chmod +x gradlew
-
-cache:
-  directories:
-    - $HOME/.m2
-    - $HOME/.gradle
+    - echo "Travis branch is $TRAVIS_BRANCH"
+    - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
